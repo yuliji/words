@@ -38,6 +38,8 @@
                 <div class="col-3">
                     <button v-on:click="judge" class="btn btn-primary">Submit</button>
                 </div>
+            </div>
+            <div class="row mt-1">
                 <div class="col-3">
                     <button v-on:click="previous" class="btn btn-primary">Previous</button>
                 </div>
@@ -91,7 +93,8 @@
             mounted: function () {
                 this.$watch('idx', () => {
                     this.$refs.player.load()
-                })
+                });
+                this.$refs.answer.focus();
             },
             methods: {
                 judge: function () {
@@ -112,12 +115,14 @@
                         this.result = '';
                         this.result_class = '';
                     }
+                    this.$refs.answer.focus();
                 },
                 previous: function () {
                     if (this.idx > 0) {
                         this.idx -= 1;
                         this.answer = '';
                     }
+                    this.$refs.answer.focus();
                 },
             }
         })
