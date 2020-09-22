@@ -69,6 +69,16 @@
                 s: 0,
                 idx: 0,
                 words: [
+                    'scrambled',
+                    'ingredients',
+                    'parsley',
+                    'kitchen',
+                    'finely',
+                    'materials',
+                    'container',
+                    'remove',
+                    'fertiliser',
+                    'stake',
                     'express',
                     'emotions',
                     'rhyme',
@@ -155,7 +165,7 @@
                     'leathery',
                     'provide',
                     'shelter',
-                    'thropical',
+                    'tropical',
                     'bare',
                     'brighten',
                     'browse',
@@ -182,7 +192,9 @@
             },
             computed: {
                 audioUrl: function () {
-                    return 'audio/' + this.words[this.idx] + '.mp3';
+                    let word = this.words[this.idx];
+                    word = word.replace(' ', '_');
+                    return 'audio/' +  word + '.mp3';
                 },
 
                 thisWord: function () {
