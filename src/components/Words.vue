@@ -42,6 +42,21 @@
           <button v-on:click="next" class="btn btn-primary">Next</button>
         </div>
       </div>
+      <div class="row mt-1">
+        <div class="col-3">
+          <input
+            ref="goto"
+            class="form-control"
+            id="answer"
+            type="text"
+            size="4"
+            v-model="goto"
+          />
+        </div>
+        <div class="col-3">
+          <button v-on:click="goTo" class="btn btn-primary">Goto</button>
+        </div>
+      </div>
       <div id="result" class="row mt-2">
         <div class="col-6">
           <div v-bind:class="result_class">{{ result }}</div>
@@ -69,6 +84,7 @@ export default {
       s: 0,
       idx: 0,
       words: words,
+      goto: '',
     };
   },
   methods: {
@@ -98,6 +114,9 @@ export default {
       }
       this.$refs.answer.focus();
     },
+    goTo: function() {
+      this.idx = parseInt(this.goto, 10) - 1;
+    }
   },
   computed: {
     audioUrl: function () {
